@@ -1,15 +1,13 @@
----
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: spring-boot-hello
-  namespace: springboot
+  name: my-service-deployrecreate
+  namespace: my-own
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
-    app: spring-boot-hello
+    app: nginx-deploymentrecreate
   ports:
-    - name: http
-      protocol: TCP
-      port: 8080
+    - protocol: TCP
+      port: 6008
       targetPort: 8080
